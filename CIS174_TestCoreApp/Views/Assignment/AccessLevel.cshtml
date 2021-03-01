@@ -1,9 +1,54 @@
-﻿@model Student
+﻿@model List<Student>
 @{
-    ViewBag.Title = "Student Access Level";
+    ViewData["Title"] = "Assignment 6.1";
 }
-<h1>Student Objects and ID Route Number</h1>
-<div>First: @Model.FirstName</div>
-<div>Last: @Model.LastName</div>
-<div>Grade: @Model.Grade</div>
-<div></div>
+
+<h1>Assignment 6.1 Student Details</h1>
+
+@if (ViewBag.Assignmentid <= 1)
+{
+    <label>You don't have sufficient access level to view this data.</label>
+}
+else if ((ViewBag.Assignmentid >= 2) && (ViewBag.Assignmentid <= 7))
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (ViewBag.Assignmentid >= 8 && ViewBag.Assignmentid <= 10)
+{
+    <label>Hello Admin</label>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.Grade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

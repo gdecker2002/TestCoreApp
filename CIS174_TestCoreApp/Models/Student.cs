@@ -11,5 +11,18 @@ namespace CIS174_TestCoreApp.Models
         public string LastName { get; set; }
         public string Grade { get; set; }
 
+        public Student(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public Student(string firstName, string lastName, string grade)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Grade = grade;
+        }
+
     }
 }
